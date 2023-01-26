@@ -9,8 +9,6 @@
 
 FROM alpine:3.16
 
-USER root
-
 ENV SWAN_VER 4.9
 WORKDIR /opt/src
 
