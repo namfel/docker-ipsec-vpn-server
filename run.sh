@@ -43,8 +43,7 @@ check_client_name() {
 if [ ! -f "/.dockerenv" ] && [ ! -f "/run/.containerenv" ] \
   && [ -z "$KUBERNETES_SERVICE_HOST" ] \
   && ! head -n 1 /proc/1/sched 2>/dev/null | grep -q '^run\.sh '; then
-  # exiterr "This script ONLY runs in a container (e.g. Docker, Podman)."
-  echo 'This script ONLY runs in a container (e.g. Docker, Podman).'
+  exiterr "This script ONLY runs in a container (e.g. Docker, Podman)."
 fi
 
 if ip link add dummy0 type dummy 2>&1 | grep -q "not permitted"; then
